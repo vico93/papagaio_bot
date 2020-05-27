@@ -37,8 +37,8 @@ bot.on('message', message => {
 		message.reply(chain_principal.respond(message.content).join(' ')); // Cria uma resposta aleatória e junta as palavaras com espaços
 	}
 	
-	// Caso o usuário-alvo envie uma mensagem, registra no arquivo frases.txt para futuras mensaegns (OU já consegue usar? não sei se createReadStream atualiza caso o arquivo seja modificado)
-	if (message.author.id == config.discord.target_user) {
+	// Caso o modo-aprendizado estiver habilitado e o usuário-alvo envie uma mensagem, registra no arquivo frases.txt para futuras mensaegns (OU já consegue usar? não sei se createReadStream atualiza caso o arquivo seja modificado)
+	if ((config.discord.learn == 'true') && (message.author.id == config.discord.target_user)) {
 		fs.appendFile('frases.txt', message.content, function (err) {
 			if (err) throw err;
 			console.log('[INFO] Mensagem armazenada no banco de dados!');
