@@ -137,4 +137,12 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/node,windows
 
 config.ini
+config.old.ini
+config.bak.ini
+config.bak1.ini
+config.bak2.ini
 frases.txt
+frases.old.txt
+frases.bak.txt
+frases.bak1.txt
+frases.bak2.txt
