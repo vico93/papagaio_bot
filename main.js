@@ -20,14 +20,16 @@ const bot = new discord_api.Client();
 var chain_principal = markov(1);				// Objeto de ordem 1
 
 /* Lista inicial de frases para o Makrov Chain aprender */
-chain_principal.seed(fs.createReadStream(__dirname + 'frases.txt'), function() {
-	console.log("[INFO] Aprendizado incial (do arquivo TEXTO) feito!"); // Mensagemzinha que o primeiro aprendizado foi feito!
+fs.readFileSync(__dirname + '\\frases.txt').toString().split("\n").forEach(function(line, index, arr) {
+	if (index === arr.length - 1 && line === "") { return; }
+	chain_principal.seed(line);
 });
 
 /* EVENTOS */
 // Evento que é executado quando o script é iniciado
 bot.once('ready', () => {
 	console.log('[INFO] Bot iniciado!');
+	console.log('[INFO] Modo de Aprendizado: ' + config.discord.learn_mode);
 });
 
 // Quando alguém manda uma mensagem
@@ -38,12 +40,13 @@ bot.on('message', message => {
 	}
 	
 	// Caso o modo-aprendizado estiver habilitado e o usuário-alvo envie uma mensagem, registra no arquivo frases.txt para futuras mensaegns (OU já consegue usar? não sei se createReadStream atualiza caso o arquivo seja modificado)
-	if ((config.discord.learn == 'true') && (message.author.id == config.discord.target_user)) {
-		fs.appendFile('frases.txt', message.content, function (err) {
+	if (config.discord.learn_mode && (message.author.id == config.discord.target_user)) {
+		chain_principal.seed(message.content);
+		fs.appendFile('frases.txt', message.content + '\n', 'utf8', function (err) {
 			if (err) throw err;
 			console.log('[INFO] Mensagem armazenada no banco de dados!');
 		});
-	}
+	};
 });
 
 /* Loga no Discord com o token presente na config */
