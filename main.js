@@ -31,7 +31,7 @@ function tratar_mensagem(msg) {
 }
 
 /* Lista inicial de frases para o Makrov Chain aprender */
-fs.readFileSync(__dirname + '\\frases.txt').toString().split("\n").forEach(function(line, index, arr) {
+fs.readFileSync(__dirname + './frases.txt').toString().split("\n").forEach(function(line, index, arr) {
 	if (index === arr.length - 1 && line === "") { return; }
 	chain_principal.seed(line);
 });
