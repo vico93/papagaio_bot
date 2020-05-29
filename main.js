@@ -27,10 +27,7 @@ function gerar_aleatorio(min, max) {
 
 // Remove mentions e etc de uma string
 function tratar_mensagem(msg) {
-	var msg_tratada = "";
-	msg_tratada = msg.replace("<@!" + bot.user.id + ">", bot.user.username); // Substitui o código de mention pelo nick do BOT	
-	msg_tratada = msg.replace("<@" + bot.user.id + ">", bot.user.username); // Substitui o código de mention pelo nick do BOT
-	return msg_tratada;
+	return msg.replace(/<(@!?|@&|#)\d{17,21}>/, ""); // Remove QUALQUER mention
 }
 
 /* Lista inicial de frases para o Makrov Chain aprender */
