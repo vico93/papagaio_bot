@@ -68,7 +68,7 @@ bot.on('message', message => {
 	// Se outra pessoa mandar msg tem a 20% de chances de mandar uma msg de volta
 	else if (message.author !== bot.user)
 	{
-		if (Math.random() >= 0.8) {
+		if (Math.random() >= 0.9) {
 			message.channel.send(chain_principal.respond(message.content).join(' ')); // Cria uma resposta aleatória e junta as palavras com espaços
 			console.log('[INFO] O BOT falou por vontade própria!');
 		}
