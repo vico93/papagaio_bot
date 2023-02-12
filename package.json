@@ -1,0 +1,23 @@
+{
+  "name": "papagaio_bot",
+  "version": "0.0.1",
+  "description": "Bot pro Discord que captura mensagens de um usuário e o imita (usando markov chain) quando mencionado.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vico93/papagaio_bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Vico",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/vico93/papagaio_bot/issues"
+  },
+  "homepage": "https://github.com/vico93/papagaio_bot#readme"
+}
