@@ -1,0 +1,9 @@
+{
+	"discord": {
+		"bot_token": "INSIRA AQUI",
+		"target_id": 0
+	},
+	"markov": {
+		"ordem": 2
+	}
+}

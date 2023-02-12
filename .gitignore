@@ -170,3 +170,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,node
 
 ### Customs ###
+/config.json
+/fonte.txt
